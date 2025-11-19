@@ -58,7 +58,7 @@ Telegram: [@justromankrasinskij](https://t.me/justromankrasinskij)
 
 ## ⚠️ Report errors
 If you find a bug in the application, please report it:   
-[GitHub Issues](https://github.com/justromankrasinskij/employee-task-manager/issues)
+[GitHub Issues](https://github.com/justromankrasinskij/stafftaskspace/issues)
 
 ---
 
@@ -122,4 +122,4 @@ Telegram: [@justromankrasinskij](https://t.me/justromankrasinskij)
 
 ## ⚠️ Сообщения об ошибках
 Если вы обнаружили ошибку в приложении, пожалуйста, сообщите о ней:  
-[GitHub Issues](https://github.com/justromankrasinskij/employee-task-manager/issues)
+[GitHub Issues](https://github.com/justromankrasinskij/stafftaskspace/issues)
