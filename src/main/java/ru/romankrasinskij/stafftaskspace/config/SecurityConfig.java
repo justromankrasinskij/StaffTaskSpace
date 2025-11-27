@@ -1,0 +1,48 @@
+package ru.romankrasinskij.stafftaskspace.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(authorize -> authorize
+            .requestMatchers("/login", "/logout", "/error", "/register", "/submit-registration-form").permitAll()
+            .requestMatchers("/css/**", "/js/**","/svg/**", "/*.ico", "/*.png", "/site.webmanifest").permitAll()
+
+            .requestMatchers("/workspace", "/workspace/**").authenticated()
+
+            .anyRequest().denyAll()
+            )
+
+            .formLogin(form -> form
+            .loginPage("/login")
+            .defaultSuccessUrl("/workspace", true)
+            .failureUrl("/error")
+            .permitAll()
+            )
+
+            .logout(logout -> logout
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login")
+            .permitAll()
+            )
+            .csrf(csrf -> csrf.disable());
+        
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new Argon2PasswordEncoder(16, 32, 1, 60000, 10);
+    }
+}
