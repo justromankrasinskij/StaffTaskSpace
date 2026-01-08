@@ -16,10 +16,10 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/login", "/logout", "/error", "/register", "/submit-registration-form").permitAll()
+            .requestMatchers("/login", "/logout", "/error", "/register", "/users/**").permitAll()
             .requestMatchers("/css/**", "/js/**","/svg/**", "/*.ico", "/*.png", "/site.webmanifest").permitAll()
 
-            .requestMatchers("/workspace", "/workspace/**").authenticated()
+            .requestMatchers("/workspace", "/profile/**", "/settings/**", "/support/**").authenticated()
 
             .anyRequest().denyAll()
             )
@@ -37,7 +37,7 @@ public class SecurityConfig {
             .permitAll()
             )
             .csrf(csrf -> csrf.disable());
-        
+
         return http.build();
     }
 

@@ -3,7 +3,7 @@ package ru.romankrasinskij.stafftaskspace.security;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.romankrasinskij.stafftaskspace.models.User;
+import ru.romankrasinskij.stafftaskspace.entity.User;
 
 public class UserDetailsImpl implements UserDetails {
 
