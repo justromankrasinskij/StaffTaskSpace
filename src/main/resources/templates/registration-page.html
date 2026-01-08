@@ -129,7 +129,7 @@
             </div>
             <div class="row g-5">
                 <div class="col-md-7 col-lg-8">
-                    <form class="needs-validation" novalidate action="submit-registration-form" method="post">
+                    <form class="needs-validation" novalidate action="/users/save" method="post">
                         <div class="mt-2 row g-3">
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Фамилия *</label>
@@ -289,6 +289,19 @@
                                         name="telegramUsername"
                                         placeholder="IvanovIvan или @IvanovIvan"
                                         />
+                                    <div class="invalid-feedback">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="company" class="form-label">
+                                    Компания
+                                </label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text">
+                                        <img src="/svg/portfolio.svg" width="20" height="20" />
+                                    </span>
+                                    <input type="text" class="form-control" id="company" name="company"/>
                                     <div class="invalid-feedback">
                                     </div>
                                 </div>
