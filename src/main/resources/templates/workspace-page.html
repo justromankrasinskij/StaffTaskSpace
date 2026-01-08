@@ -258,11 +258,11 @@
                         height="32"
                         class="rounded-circle me-2"
                         />
-                    <b th:text="${#authentication.principal.firstName} + ' ' + ${#authentication.principal.lastName}"></b>
+                    <b th:text="${#authentication.principal.firstName}"></b>
                 </a>
                 <ul class="dropdown-menu text-small w-100 mb-2">
                     <li>
-                        <a class="dropdown-item text-decoration-none" hx-get="/workspace/profile" hx-target="#page-content-wrapper" hx-swap="outerHTML">
+                        <a href="/profile" class="dropdown-item text-decoration-none">
                             <svg
                                 class="bi pe-none me-2"
                                 width="16"
@@ -275,7 +275,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item text-decoration-none" hx-get="/workspace/settings" hx-target="#page-content-wrapper" hx-swap="outerHTML">
+                        <a href="/settings" class="dropdown-item text-decoration-none">
                             <svg
                                 class="bi pe-none me-2"
                                 width="16"
@@ -288,7 +288,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item text-decoration-none" hx-get="/workspace/support" hx-target="#page-content-wrapper" hx-swap="outerHTML">
+                        <a href="/support" class="dropdown-item text-decoration-none">
                             <svg
                                 class="bi pe-none me-2"
                                 width="16"
