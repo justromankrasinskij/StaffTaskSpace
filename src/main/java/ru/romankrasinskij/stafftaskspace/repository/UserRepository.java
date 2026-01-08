@@ -1,12 +1,12 @@
-package ru.romankrasinskij.stafftaskspace.repositories;
+package ru.romankrasinskij.stafftaskspace.repository;
 
-import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.romankrasinskij.stafftaskspace.models.User;
+
+import ru.romankrasinskij.stafftaskspace.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    Optional<User> findByUsername(String username);
+    public User findByUsername(String username);
 }
