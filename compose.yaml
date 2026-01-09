@@ -1,7 +1,6 @@
 name: stafftaskspace
 services:
   app:
-    env_file: app.env
     image: stafftaskspace:latest
     networks:
       - backend-net
@@ -12,12 +11,7 @@ services:
         condition: service_healthy
         restart: true
   db:
-    env_file: db.env
     image: postgres:17.7-alpine
-    environment:
-      POSTGRES_USER: ${USER}
-      POSTGRES_PASSWORD: ${PASSWORD}
-      POSTGRES_DB: ${DB}
     volumes:
      - dbdata:/var/lib/postgresql/data
     networks:
