@@ -19,7 +19,7 @@ public class SecurityConfig {
             .requestMatchers("/login", "/logout", "/error", "/register", "/users/**").permitAll()
             .requestMatchers("/css/**", "/js/**","/svg/**", "/*.ico", "/*.png", "/site.webmanifest").permitAll()
 
-            .requestMatchers("/workspace", "/profile/**", "/settings/**", "/support/**").authenticated()
+            .requestMatchers("/workspace/**", "/profile/**", "/settings/**", "/support/**").authenticated()
 
             .anyRequest().denyAll()
             )
