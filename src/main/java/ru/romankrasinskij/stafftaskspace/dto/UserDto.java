@@ -1,14 +1,69 @@
 package ru.romankrasinskij.stafftaskspace.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class UserDto {
 
-    private String lastName;
+    @NotBlank(message = "The name cannot be empty")
+    @Size(min = 2,
+          max = 30,
+          message = "The length of the first name can be from 2 to 30 characters")
     private String firstName;
+
+    @NotBlank(message = "The last name cannot be empty")
+    @Size(min = 2,
+          max = 30,
+          message = "The length of the last name can be from 2 to 30 characters")
+    private String lastName;
+
+    @Size(min = 2,
+          max = 30,
+          message = "The length of the patronymic can be from 2 to 30 characters")
     private String patronymic;
+
+    @NotBlank(message = "The date of birth cannot be empty")
+    @Size(min = 10,
+          max = 10,
+          message = "The length of the date of birth can be 10 characters")
+    @Pattern(regexp = "^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[1,2])\\.(19|20)\\d{2}$",
+             message = "The date of birth format should be as follows: 01.01.2001"
+    )
     private String dateOfBirth;
+
+    @NotBlank(message = "The username cannot be empty")
+    @Size(min = 5,
+          max = 30,
+          message = "The length of the username can be from 5 to 30 characters")
     private String username;
+
+    @NotBlank(message = "The password cannot be empty")
+    @Size(min = 8,
+          max = 30,
+          message = "The length of the password can be from 8 to 30 characters"
+    )
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=]).{8,}$",
+             message = "The password must be between 8 and 20 characters long"
+                     + " and contain upper and lower case letters as well as special characters"
+    )
     private String password;
+
+    @NotBlank(message = "The email cannot be empty")
+    @Size(min = 5,
+          max = 30,
+          message = "The length of the email can be from 5 to 30 characters")
+    @Email(message = "The email format should be as follows: email@example.com")
     private String email;
+
+    @NotBlank(message = "The phone number cannot be empty")
+    @Size(min = 11,
+          max = 11,
+          message = "The length of the phone number can be 11 characters")
+    @Pattern(regexp = "\\d{11}",
+             message = "The phone number format should be as follows: 79001112233"
+    )
     private String phoneNumber;
     private String telegramUsername;
     private String company;
