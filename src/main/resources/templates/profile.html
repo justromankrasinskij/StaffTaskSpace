@@ -1,0 +1,139 @@
+<main class="container-fluid" id="htmx-content">
+  <div class="row g-5 ms-3">
+    <div class="col-md-7 col-lg-8">
+      <div class="mt-2">
+        <h2 th:text="${company}"></h2>
+        <h3>Профиль сотрудника</h3>
+      </div>
+      <form class="needs-validation" novalidate th:action="@{/users/update}" th:method="PATCH">
+        <div class="mt-2 row g-3">
+          <div class="col-sm-6">
+            <label for="lastName" class="form-label">Фамилия</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" th:value="${lastName}" required />
+            <div class="invalid-feedback">
+              Введите фамилию
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="first" name="firstName" th:value="${firstName}" required />
+            <div class="invalid-feedback">
+              Введите имя
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label for="patronymic" class="form-label">Отчество</label>
+            <input type="text" class="form-control" id="patronymic" name="patronymic" th:value="${patronymic}" />
+          </div>
+          <div class="col-sm-6">
+            <label for="dateOfBirth" class="form-label">Дата рождения</label>
+            <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth" th:value="${dateOfBirth}"
+              required />
+            <div class="invalid-feedback">
+              Введите дату рождения
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="username" class="form-label">
+              Имя пользователя
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/user.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="username" name="username" th:value="${username}" required />
+              <div class="invalid-feedback">
+                Введите имя пользователя
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="email" class="form-label">Электронная почта
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/envelope.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="email" name="email" th:value="${email}" required />
+              <div class="invalid-feedback">
+                Введите электронную почту
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="phoneNumber" class="form-label">Номер телефона
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/phone.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" th:value="${phoneNumber}"
+                required />
+              <div class="invalid-feedback">
+                Введите номер телефона
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="telegramUsername" class="form-label">
+              Имя пользователя в Telegram
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/telegram.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="telegramUsername" name="telegramUsername"
+                th:value="${telegramUsername}" />
+              <div class="invalid-feedback">
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="company" class="form-label">
+              Компания
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/portfolio.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="company" name="company" th:value="${company}" />
+              <div class="invalid-feedback">
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="department" class="form-label">
+              Отдел
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/department.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="department" name="department" th:value="${department}" />
+              <div class="invalid-feedback">
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="appointment" class="form-label">
+              Должность
+            </label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">
+                <img src="/svg/appointment.svg" width="20" height="20" />
+              </span>
+              <input type="text" class="form-control" id="appointment" name="appointment" th:value="${appointment}" />
+              <div class="invalid-feedback">
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mb-4 mt-4">Для изменения пароля обратитесь в <a href="/support">службу
+            поддержки.</p>
+        <button class="btn btn-primary btn-lg" type="submit">
+          Изменить данные
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

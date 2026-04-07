@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <title>Регистрация в системе</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/registration.css" rel="stylesheet" />
+</head>
+
+<body class="bg-body-tertiary">
+  <div class="container">
+    <main>
+      <div class="py-1 text-center">
+        <img class="d-block mx-auto mb-1" src="/svg/happy-man.svg" alt="" width="128" height="128" />
+        <h1 class="h2">Привет! Остался всего один шаг.</h1>
+        <p class="lead">
+          Чтобы получить доступ к системе Staff Task Space, пожалуйста, заполните форму ниже.<br>
+          Поля, отмеченные звёздочкой (*), обязательны для заполнения.<br>
+          Если у вас возникли вопросы, напишите нам:
+          <a href="mailto:support@stafftaskspace.ru">support@stafftaskspace.ru</a><br>
+        </p>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-7 col-lg-8">
+          <form class="needs-validation" method="POST" action="/users/save" th:object="${userdto}">
+            <div class="mt-2 row g-3">
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Фамилия *</label>
+                <input type="text" class="form-control" th:field="*{lastName}"
+                       name="lastName" placeholder="Иванов" required />
+                <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red" />
+                <div class="invalid-feedback">
+                  Введите фамилию
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Имя *</label>
+                <input type="text" class="form-control" th:field="*{firstName}"
+                       name="firstName" placeholder="Иван" required />
+                <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red" />
+              </div>
+
+              <div class="col-sm-6">
+                <label for="patronymic" class="form-label">Отчество</label>
+                <input type="text" class="form-control" th:field="*{patronymic}"
+                       name="patronymic" placeholder="Иванович" />
+              </div>
+
+              <div class="col-sm-6">
+                <label for="dateOfBirth" class="form-label">Дата рождения *</label>
+                <input type="text" class="form-control" th:field="*{dateOfBirth}"
+                       name="dateOfBirth" placeholder="01.01.2001" required />
+                <p th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}" style="color: red" />
+              </div>
+
+              <div class="col-12">
+                <label for="username" class="form-label">Имя пользователя *
+                  <span class="text-body-secondary">(По нему вас быстро найдут другие
+                    сотрудники)</span>
+                </label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">
+                    <img src="/svg/user.svg" width="20" height="20" />
+                  </span>
+                  <input type="text" class="form-control" th:field="*{username}"
+                         name="username" placeholder="IvanovIvan" required />
+                </div>
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red" />
+              </div>
+
+              <div class="col-12">
+                <label for="password" class="form-label">Пароль *</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">
+                    <img src="/svg/key.svg" width="20" height="20" />
+                  </span>
+                  <input type="password" class="form-control" th:field="*{password}"
+                         name="password" required />
+                  <button type="button" class="btn" onclick="togglePasswordVisibility()">
+                    <img id="closed-eye" src="/svg/closed-eye.svg" width="25" height="25" />
+                  </button>
+                  <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red" />
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="form-label">Электронная почта *
+                </label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">
+                    <img src="/svg/envelope.svg" width="20" height="20" />
+                  </span>
+                  <input type="text" class="form-control" th:field="*{email}" name="email" placeholder="ivanov.ivan@email.com"
+                    required />
+                  </div>
+                  <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red" />
+              </div>
+
+              <div class="col-12">
+                <label for="phoneNumber" class="form-label">Номер телефона *
+                </label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">
+                    <img src="/svg/phone.svg" width="20" height="20" />
+                  </span>
+                  <input type="text" class="form-control" th:field="*{phoneNumber}"
+                         name="phoneNumber" placeholder="79001112233" required />
+                </div>
+                <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" style="color: red" />
+              </div>
+
+              <div class="col-12">
+                <label for="telegramUsername" class="form-label">Имя пользователя в Telegram
+                </label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">
+                    <img src="/svg/telegram.svg" width="20" height="20" />
+                  </span>
+                  <input type="text" class="form-control" th:field="*{telegramUsername}"
+                  name="telegramUsername" placeholder="IvanovIvan или @IvanovIvan" />
+                </div>
+                <p th:if="${#fields.hasErrors('telegramUsername')}" th:errors="*{telegramUsername}" style="color: red" />
+              </div>
+
+              <div class="col-12">
+                <label for="company" class="form-label">
+                  Компания
+                </label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">
+                    <img src="/svg/portfolio.svg" width="20" height="20" />
+                  </span>
+                  <input type="text" class="form-control" th:field="*{company}" name="company" />
+                </div>
+                <p th:if="${#fields.hasErrors('company')}" th:errors="*{company}" style="color: red" />
+              </div>
+
+              <div class="col-md-5 w-50">
+                <label for="department" class="form-label">Отдел *</label>
+                <select class="form-select" name="department" required>
+                  <option>Выберите отдел...</option>
+                  <option>Бухгалтерия</option>
+                  <option>ИТ-отдел</option>
+                  <option>Отдел маркетинга и рекламы</option>
+                  <option>Отдел сбыта</option>
+                  <option>Отдел управления персоналом</option>
+                  <option>Юридический отдел</option>
+                </select>
+              </div>
+
+              <div class="col-md-4 w-50">
+                <label for="appointment" class="form-label">Должность *</label>
+                <select class="form-select" name="appointment" required>
+                  <option>Выберите должность...</option>
+                  <option>HR</option>
+                  <option>Администратор магазина</option>
+                  <option>Бухгалтер</option>
+                  <option>Бухгалтер-оператор</option>
+                  <option>Бухгалтер по зарплате</option>
+                  <option>Главный бухгалтер</option>
+                  <option>Дизайнер</option>
+                  <option>Директор</option>
+                  <option>Маркетолог</option>
+                  <option>Продавец</option>
+                  <option>Системный администратор</option>
+                  <option>Финансовый директор</option>
+                  <option>Юрист</option>
+                </select>
+              </div>
+
+            </div>
+            <button class="btn btn-primary btn-lg mb-4 mt-4" type="submit">
+              Зарегистрироваться
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+  <script src="/js/registration.js" class="astro-vvvwv3sm"></script>
+</body>
+
+</html>

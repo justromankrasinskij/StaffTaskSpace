@@ -1,0 +1,9 @@
+<main class="container-fluid" id="htmx-content">
+  <h3>Здесь будет список ваших задач</h3>
+  <button type="button" class="btn btn-success" hx-get="/workspace/task/add" hx-target="#htmx-content"
+    hx-swap="outerHTML">Создать задачу</button>
+  <button type="button" class="btn btn-primary" hx-get="/workspace/task/update" hx-target="#htmx-content"
+    hx-swap="outerHTML">Изменить задачу</button>
+  <button type="button" class="btn btn-danger" hx-get="/workspace/task/delete" hx-target="#htmx-content"
+    hx-swap="outerHTML">Удалить задачу</button>
+</main>

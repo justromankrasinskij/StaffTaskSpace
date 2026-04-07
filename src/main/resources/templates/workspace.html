@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>Рабочее пространство</title>
+	<link href="css/workspace.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="d-flex" id="wrapper">
+		<div class="border-end bg-white" id="sidebar-wrapper">
+			<div class="sidebar-heading border-bottom bg-light">Staff Task Space</div>
+			<div class="list-group list-group-flush">
+				<a class="list-group-item list-group-item-action p-3" hx-get="/workspace/main" hx-target="#htmx-content"
+					hx-swap="outerHTML">Главная страница</a>
+				<a class="list-group-item list-group-item-action p-3" hx-get="/workspace/task" hx-target="#htmx-content"
+					hx-swap="outerHTML">Задачи</a>
+				<a class="list-group-item list-group-item-action p-3" hx-get="/workspace/employee" hx-target="#htmx-content"
+					hx-swap="outerHTML">Сотрудники</a>
+				<a class="list-group-item list-group-item-action p-3" hx-get="/workspace/calendar" hx-target="#htmx-content"
+					hx-swap="outerHTML">Календарь</a>
+				<a class="list-group-item list-group-item-action border-bottom p-3" hx-get="/workspace/statistics"
+					hx-target="#htmx-content" hx-swap="outerHTML">Статистика</a>
+			</div>
+		</div>
+		<div id="page-content-wrapper">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+				<div class="container-fluid">
+					<button class="btn btn-outline-dark border-0" id="sidebarToggle">Показать/скрыть меню</button>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+							<li><button class="btn btn-outline-dark border-0" hx-get="/profile" hx-target="#htmx-content"
+									hx-swap="outerHTML">Профиль</button></li>
+							<li><button class="btn btn-outline-dark border-0"
+									hx-get="/settings" hx-target="#htmx-content" hx-swap="outerHTML">Настройки</button></li>
+							<li><button class="btn btn-outline-dark border-0"
+									hx-get="/support" hx-target="#htmx-content" hx-swap="outerHTML">Служба поддержки</button></li>
+							<li><a class="btn btn-outline-danger border-0" href="/logout">Выход</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<main class="container-fluid" id="htmx-content">
+				<h3>Главная страница</h3>
+			</main>
+		</div>
+	</div>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/workspace.js"></script>
+	<script src="js/htmx.min.js"></script>
+</body>
+
+</html>
